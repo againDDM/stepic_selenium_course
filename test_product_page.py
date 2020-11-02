@@ -2,6 +2,7 @@ import pytest
 from .pages.product_page import ProductPage   # pylint: disable=relative-beyond-top-level
 from .pages.locators import ProductPageLocators   # pylint: disable=relative-beyond-top-level
 
+
 @pytest.mark.parametrize(
     'link', [
         "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",

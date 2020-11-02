@@ -10,6 +10,11 @@ class ProductPage(BasePage):
         button.click()
 
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+        "Success message is presented, but should not be"
+
+
     def check_product_name(self):
         page_product_name = self.browser.find_element(
             *ProductPageLocators.PAGE_PRODUCT_NAME
@@ -17,7 +22,8 @@ class ProductPage(BasePage):
         alert_product_name =self.browser.find_element(
             *ProductPageLocators.ALERT_PRODUCT_NAME
         ).text
-        assert page_product_name == alert_product_name, "Incorrect product name"
+        assert page_product_name == alert_product_name, \
+            "Incorrect product name"
 
 
     def check_product_price(self):
@@ -27,4 +33,5 @@ class ProductPage(BasePage):
         alert_product_price =self.browser.find_element(
             *ProductPageLocators.ALERT_PRODUCT_PRICE
         ).text
-        assert page_product_price == alert_product_price, "Incorrect product price"
+        assert page_product_price == alert_product_price, \
+            "Incorrect product price"
