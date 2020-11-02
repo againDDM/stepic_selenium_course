@@ -10,7 +10,7 @@ def pytest_addoption(parser):
     )
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="module")
 def browser(request):
     options = Options()
     options.add_experimental_option(
@@ -21,3 +21,8 @@ def browser(request):
     browser = webdriver.Chrome()
     yield browser
     browser.quit()
+
+
+@pytest.fixture(scope="function", autouse=True)
+def clear_cookie(browser):
+    browser.delete_all_cookies()
