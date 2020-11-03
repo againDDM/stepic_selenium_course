@@ -1,6 +1,5 @@
 from .base_page import BasePage   # pylint: disable=relative-beyond-top-level
 from .locators import LoginPageLocators   # pylint: disable=relative-beyond-top-level
-from selenium.common.exceptions import NoSuchElementException
 
 
 class LoginPage(BasePage):
