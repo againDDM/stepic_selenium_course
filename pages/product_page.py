@@ -6,13 +6,22 @@ from selenium.webdriver.common.by import By
 class ProductPage(BasePage):
 
     def add_product_to_basket(self):
-        button = self.browser.find_element(*ProductPageLocators.ADD_PRODUCT_TO_BASKET_BUTTON)
+        button = self.browser.find_element(
+            *ProductPageLocators.ADD_PRODUCT_TO_BASKET_BUTTON
+        )
         button.click()
 
 
     def should_not_be_success_message(self):
-        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
-        "Success message is presented, but should not be"
+        assert self.is_not_element_present(
+            *ProductPageLocators.SUCCESS_MESSAGE
+        ), "Success message is presented, but should not be"
+
+
+    def success_message_should_be_disappeared(self):
+        assert self.is_not_element_present(
+            *ProductPageLocators.SUCCESS_MESSAGE
+        ), "Success message is presented, but should not be"
 
 
     def check_product_name(self):
