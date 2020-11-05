@@ -18,6 +18,9 @@ def browser(request):
             'intl.accept_languages': request.config.getoption("language"),
         }
     )
-    browser = webdriver.Chrome()
+    options.add_argument("--window-position=-1920,0")
+    options.add_argument("--window-size=1920,1080")
+    options.add_argument("--incognito")
+    browser = webdriver.Chrome(options=options)
     yield browser
     browser.quit()
